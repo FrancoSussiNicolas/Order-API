@@ -1,0 +1,34 @@
+{
+  "name": "order-api",
+  "version": "1.0.0",
+  "description": "This is a RESTful API for managing **customers**, **products**, and **orders** in a simple online store.  \r The API is built with **Node.js**, **TypeScript**, **Prisma ORM**, and **PostgreSQL**, and it uses **pgAdmin v4** for database visualization.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoSussiNicolas/Order-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrancoSussiNicolas/Order-API/issues"
+  },
+  "homepage": "https://github.com/FrancoSussiNicolas/Order-API#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.4",
+    "prisma": "^6.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.10.1",
+    "zod": "^3.25.67"
+  }
+}
