@@ -41,7 +41,7 @@ The API is built with **Node.js**, **TypeScript**, **Prisma ORM**, and **Postgre
 - **Prisma** (ORM)
 - **PostgreSQL** (database)
 - **pgAdmin v4** (database GUI)
-- **Zod / Joi** (optional, for validation)
+- **Zod (For validation)
 - **dotenv** (for environment configuration)
 
 
