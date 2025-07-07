@@ -58,7 +58,7 @@ async function seed() {
 
 seed()
     .then(() => {
-        console.log('🌱 Seed completo')
+        console.log('🌱 Seed completed')
     })
     .catch((e) => {
         console.error(e)
@@ -66,6 +66,3 @@ seed()
     })
     .finally(() => prisma.$disconnect())
     
-
-
-seed().then(()=> prisma.$disconnect);

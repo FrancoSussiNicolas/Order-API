@@ -1,6 +1,7 @@
 import {Request , Response} from 'express';
 import { CustomerModel } from '../model/CustomerModel';
-import { validateCustomer, validatePartialCustomer } from '../useful/validateCustomer';
+import { validateCustomerWithOrder, validatePartialCustomer } from '../useful/validateCustomerWithOrder';
+import { error } from 'console';
 
 
 export class CustomerController {
@@ -27,15 +28,28 @@ export class CustomerController {
         return res.status(201).json(customer);
     }
 
-    static async createCustomer (req:Request, res:Response){
-        const result = validateCustomer(req.body); 
-        if(result.success) {
-            const newCustomer = await CustomerModel.create(result.data);
-            if(newCustomer == null) {
-                return res.status(400).json({message:"The Customer already registered"});
-            }
-            return res.status(201).json(newCustomer); 
+    // static async createCustomer (req:Request, res:Response){
+    //     const result = validateCustomer(req.body); 
+    //     if(result.success) {
+    //         const newCustomer = await CustomerModel.create(result.data);
+    //         if(newCustomer == null) {
+    //             return res.status(400).json({message:"The Customer already registered"});
+    //         }
+    //         return res.status(201).json(newCustomer); 
+    //     }
+    // }
+
+    static async createCustomerWithOrder (req:Request, res:Response){
+        const result = validateCustomerWithOrder(req.body);
+
+        if(!result.success){
+            return res.status(404).json({
+                error: "Invalid dates",
+                detail : result.error.format()
+            })
         }
+
+        const newCustomerOrder = CustomerModel.createCustomerWOrder(result.data)
     }
 
     //Review

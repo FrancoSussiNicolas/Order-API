@@ -2,3 +2,22 @@
 
 ###
 GET http://localhost:5342/customer
+
+###
+GET http://localhost:5342/customer/2
+
+###
+POST  http://localhost:5342/customer
+Content-Type: application/json
+
+{
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "adress": "Av. Siempre Viva 123",
+}
+
+
+### Created customer with order
+
+###
+POST  http://localhost:5342/customer/customer-with-order

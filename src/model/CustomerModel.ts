@@ -1,5 +1,5 @@
 import { PrismaClient, Customer } from "@prisma/client";
-import { CustomerSchemaType,CustomerSchemaTypePartial } from "../useful/validateCustomer";
+import { CustomerSchemaOrderType,CustomerSchemaTypePartial } from "../useful/validateCustomerWithOrder";
 
 const prisma = new PrismaClient; 
 
@@ -18,17 +18,23 @@ export class CustomerModel {
         return customer; 
     }
 
-    static async create (newCustomer: CustomerSchemaType ): Promise<Customer | null> {
-        const customer = await prisma.customer.findUnique({
-            where: {email: newCustomer.email}
-        });
+    //Create customer without orders (Review)
+    // static async create (newCustomer: CustomerSchemaType ): Promise<Customer | null> {
+    //     const customer = await prisma.customer.findUnique({
+    //         where: {email: newCustomer.email}
+    //     });
         
-        if(customer !== null) return null;
+    //     if(customer !== null) return null;
 
-        const newCus = await prisma.customer.create({
-            data: {...newCustomer}
-        }); 
-        return newCus;
+    //     const newCus = await prisma.customer.create({
+    //         data: {...newCustomer}
+    //     }); 
+    //     return newCus;
+    // }
+
+    //Create customer with order
+    static async createCustomerWOrder (data: CustomerSchemaOrderType){
+
     }
 
     //Review
